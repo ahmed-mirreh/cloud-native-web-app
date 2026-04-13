@@ -5,7 +5,6 @@ aws_region   = "us-east-1"
 alert_email_address = "you-email@example.com"
 rapidapi_key        = "c9c5c16c19502dd0d94210b75ec8102b"
 
-custom_ami_id = "ami-0a8fc5a9a1e464ce2"
 instance_type = "t3.small"
 
 vpc_cidr                = "192.169.0.0/16"
