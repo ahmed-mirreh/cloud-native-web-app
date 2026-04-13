@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NBA Daily Challenge</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>NBA Daily Challenge</h1>
+        </header>
+
+        <!-- Leaderboard Section -->
+        <section class="leaderboard-section minimized" id="solutions-section">
+            <div class="leaderboard-header" onclick="toggleSolutions()">
+                <h2>Leaderboard</h2>
+                <button class="toggle-btn" id="toggle-btn">▼</button>
+            </div>
+            <div id="leaderboard-content" class="leaderboard-content">
+                <!-- Solutions content will be populated by JavaScript -->
+            </div>
+        </section>
+
+        <!-- Daily Challenge Section -->
+        <section class="daily-challenge">
+            <h2>Today's Challenge</h2>
+            <p class="challenge-instructions">
+                Select 5 NBA players whose combined stats match the targets below exactly. 
+                Once you find a winning combination, enter your username to join today's solutions!
+            </p>
+            <div class="challenge-targets">
+                <div class="target">
+                    <span class="target-label">Points:</span>
+                    <span class="target-value" id="target-points">125</span>
+                </div>
+                <div class="target">
+                    <span class="target-label">Rebounds:</span>
+                    <span class="target-value" id="target-rebounds">50</span>
+                </div>
+                <div class="target">
+                    <span class="target-label">Assists:</span>
+                    <span class="target-value" id="target-assists">35</span>
+                </div>
+            </div>
+            <div class="timer-container">
+                <span class="timer-label">Time: </span>
+                <span id="timer-display" class="timer-display">00:00</span>
+            </div>
+        </section>
+
+        <!-- Player Selection Section -->
+        <section class="player-selection">
+            <h2>Your Lineup</h2>
+            <div class="current-totals">
+                <div class="total">Points: <span id="current-points">0</span></div>
+                <div class="total">Rebounds: <span id="current-rebounds">0</span></div>
+                <div class="total">Assists: <span id="current-assists">0</span></div>
+            </div>
+            
+            <div class="player-slots">
+                <div class="player-slot" data-slot="1">
+                    <div class="slot-header">Slot 1</div>
+                    <div class="player-card empty">
+                        <button class="add-player-btn" onclick="showPlayerSearch(1)">+ Add Player</button>
+                        <div class="player-stats">
+                            <div class="stat-item">
+                                <span class="stat-label">Points</span>
+                                <span class="stat-value empty">--</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Rebounds</span>
+                                <span class="stat-value empty">--</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Assists</span>
+                                <span class="stat-value empty">--</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="player-slot" data-slot="2">
+                    <div class="slot-header">Slot 2</div>
+                    <div class="player-card empty">
+                        <button class="add-player-btn" onclick="showPlayerSearch(2)">+ Add Player</button>
+                        <div class="player-stats">
+                            <div class="stat-item">
+                                <span class="stat-label">Points</span>
+                                <span class="stat-value empty">--</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Rebounds</span>
+                                <span class="stat-value empty">--</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Assists</span>
+                                <span class="stat-value empty">--</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="player-slot" data-slot="3">
+                    <div class="slot-header">Slot 3</div>
+                    <div class="player-card empty">
+                        <button class="add-player-btn" onclick="showPlayerSearch(3)">+ Add Player</button>
+                        <div class="player-stats">
+                            <div class="stat-item">
+                                <span class="stat-label">Points</span>
+                                <span class="stat-value empty">--</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Rebounds</span>
+                                <span class="stat-value empty">--</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Assists</span>
+                                <span class="stat-value empty">--</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="player-slot" data-slot="4">
+                    <div class="slot-header">Slot 4</div>
+                    <div class="player-card empty">
+                        <button class="add-player-btn" onclick="showPlayerSearch(4)">+ Add Player</button>
+                        <div class="player-stats">
+                            <div class="stat-item">
+                                <span class="stat-label">Points</span>
+                                <span class="stat-value empty">--</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Rebounds</span>
+                                <span class="stat-value empty">--</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Assists</span>
+                                <span class="stat-value empty">--</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="player-slot" data-slot="5">
+                    <div class="slot-header">Slot 5</div>
+                    <div class="player-card empty">
+                        <button class="add-player-btn" onclick="showPlayerSearch(5)">+ Add Player</button>
+                        <div class="player-stats">
+                            <div class="stat-item">
+                                <span class="stat-label">Points</span>
+                                <span class="stat-value empty">--</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Rebounds</span>
+                                <span class="stat-value empty">--</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Assists</span>
+                                <span class="stat-value empty">--</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="action-buttons">
+                <button id="submit-btn" class="submit-btn" onclick="submitSolution()">Submit Solution</button>
+                <button id="clear-btn" class="clear-btn" onclick="clearTeam()">Clear Team</button>
+            </div>
+        </section>
+
+        <!-- Player Search Modal -->
+        <div id="player-search-modal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closePlayerSearch()">&times;</span>
+                <h3>Search NBA Players</h3>
+                <input type="text" id="player-search" placeholder="Search for a player..." onkeyup="searchPlayers()">
+                <div id="search-results" class="search-results"></div>
+            </div>
+        </div>
+
+        <!-- Username Modal -->
+        <div id="username-modal" class="modal">
+            <div class="modal-content">
+                <h3>Congratulations! You Win!</h3>
+                <p>Enter your username for the leaderboard:</p>
+                <input type="text" id="username-input" placeholder="Your username" maxlength="20">
+                <div class="modal-buttons">
+                    <button onclick="submitToLeaderboard()">Submit to Leaderboard</button>
+                    <button onclick="closeUsernameModal()">Skip</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Loading Overlay -->
+        <div id="loading-overlay" class="loading-overlay">
+            <div class="loading-message">Loading stats...</div>
+        </div>
+
+        <!-- Result Message -->
+        <div id="result-message" class="result-message"></div>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
