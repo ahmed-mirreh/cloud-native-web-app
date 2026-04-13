@@ -1,0 +1,94 @@
+{
+  "nba-higher-lower-game-dev-players": [
+    {
+      "PutRequest": {
+        "Item": {
+          "player_name": {"S": "LeBron James"},
+          "team": {"S": "LAL"},
+          "photo_url": {"S": "https://cdn.nba.com/headshots/nba/latest/1040x760/2544.png"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "player_name": {"S": "Stephen Curry"},
+          "team": {"S": "GSW"},
+          "photo_url": {"S": "https://cdn.nba.com/headshots/nba/latest/1040x760/201939.png"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "player_name": {"S": "Giannis Antetokounmpo"},
+          "team": {"S": "MIL"},
+          "photo_url": {"S": "https://cdn.nba.com/headshots/nba/latest/1040x760/203507.png"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "player_name": {"S": "Kevin Durant"},
+          "team": {"S": "PHX"},
+          "photo_url": {"S": "https://cdn.nba.com/headshots/nba/latest/1040x760/201142.png"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "player_name": {"S": "Jayson Tatum"},
+          "team": {"S": "BOS"},
+          "photo_url": {"S": "https://cdn.nba.com/headshots/nba/latest/1040x760/1628369.png"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "player_name": {"S": "Luka Doncic"},
+          "team": {"S": "DAL"},
+          "photo_url": {"S": "https://cdn.nba.com/headshots/nba/latest/1040x760/1629029.png"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "player_name": {"S": "Joel Embiid"},
+          "team": {"S": "PHI"},
+          "photo_url": {"S": "https://cdn.nba.com/headshots/nba/latest/1040x760/203954.png"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "player_name": {"S": "Nikola Jokic"},
+          "team": {"S": "DEN"},
+          "photo_url": {"S": "https://cdn.nba.com/headshots/nba/latest/1040x760/203999.png"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "player_name": {"S": "Jimmy Butler"},
+          "team": {"S": "MIA"},
+          "photo_url": {"S": "https://cdn.nba.com/headshots/nba/latest/1040x760/202710.png"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "player_name": {"S": "Anthony Davis"},
+          "team": {"S": "LAL"},
+          "photo_url": {"S": "https://cdn.nba.com/headshots/nba/latest/1040x760/203076.png"}
+        }
+      }
+    }
+  ]
+}
