@@ -12,7 +12,7 @@ resource "aws_cloudwatch_log_group" "ec2_logs" {
 resource "aws_launch_template" "app" {
   name_prefix   = "${var.project_name}-${var.environment}-"
   description   = "Launch template for NBA Higher Lower Game backend"
-  image_id      = var.custom_ami_id
+  image_id = data.aws_ami.amazon_linux_2023.id
   instance_type = var.instance_type
   
   vpc_security_group_ids = [var.ec2_security_group_id]

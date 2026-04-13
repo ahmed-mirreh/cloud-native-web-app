@@ -38,12 +38,6 @@ variable "ec2_instance_profile_name" {
   type        = string
 }
 
-# AMI Configuration
-variable "custom_ami_id" {
-  description = "ID of the custom AMI with backend code baked in"
-  type        = string
-}
-
 # Instance Configuration
 variable "instance_type" {
   description = "EC2 instance type"
