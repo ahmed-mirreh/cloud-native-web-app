@@ -147,7 +147,6 @@ cd frontend/
 aws s3 cp index.html s3://${BUCKET_NAME}/index.html --content-type text/html --region ${REGION}
 aws s3 cp styles.css s3://${BUCKET_NAME}/styles.css --content-type text/css --region ${REGION}
 aws s3 cp script.js s3://${BUCKET_NAME}/script.js --content-type application/javascript --region ${REGION}
-aws s3 cp error.html s3://${BUCKET_NAME}/error.html --content-type text/html --region ${REGION}
 
 # Create and upload config file with API endpoint
 echo "window.API_BASE_URL = 'https://${CLOUDFRONT_DOMAIN}/api';" > config.js
