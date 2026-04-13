@@ -3,7 +3,7 @@ environment  = "dev"
 aws_region   = "us-east-1"
 
 alert_email_address = "you-email@example.com"
-rapidapi_key        = "c9c5c16c19502dd0d94210b75ec8102b"
+rapidapi_key        = "placeholder-will-be-overridden-by-env-var"
 
 instance_type = "t2.micro"
 
