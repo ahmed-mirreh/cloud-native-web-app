@@ -56,7 +56,6 @@ module "compute" {
   environment  = var.environment
   aws_region   = var.aws_region
 
-  custom_ami_id = var.custom_ami_id
   instance_type = var.instance_type
 
   vpc_id             = module.networking.vpc_id

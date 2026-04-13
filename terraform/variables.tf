@@ -25,12 +25,7 @@ variable "alert_email_address" {
   type        = string
 }
 
-# AMI Configuration
-variable "custom_ami_id" {
-  description = "ID of the custom AMI with backend code baked in"
-  type        = string
-}
-
+# Compute Configuration
 variable "instance_type" {
   description = "EC2 instance type"
   type        = string
