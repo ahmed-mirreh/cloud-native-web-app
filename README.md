@@ -159,7 +159,7 @@ aws s3 cp config.js s3://${BUCKET_NAME}/config.js --content-type application/jav
 cd ../database/
 
 # Upload initial player data
-aws dynamodb batch-write-item --request-items file://players_data.json --region ${REGION}
+aws dynamodb batch-write-item --request-items file://player_data.json --region ${REGION}
 ```
 
 ## Access Your Application
