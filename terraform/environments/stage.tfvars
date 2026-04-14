@@ -2,8 +2,9 @@ project_name = "nba-higher-lower-game"
 environment  = "stage"
 aws_region   = "us-east-1"
 
-alert_email_address = "you-email@example.com"
-rapidapi_key        = "placeholder-will-be-overridden-by-env-var"
+# Sensitive values - will be prompted interactively
+# alert_email_address = "prompt-during-apply"
+# rapidapi_key        = "prompt-during-apply"
 
 instance_type = "t3.small"
 
