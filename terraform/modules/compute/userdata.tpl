@@ -45,15 +45,13 @@ export PATH="/home/ec2-user/.local/bin:$PATH"
 
 echo "Cloning backend code..."
 yum install -y git
-git clone --no-checkout https://github.com/ahmed-mirreh/cloud-native-web-app.git /home/ec2-user
-cd /home/ec2-user
+git clone --no-checkout https://github.com/ahmed-mirreh/cloud-native-web-app.git /home/ec2-user/cloud-native-web-app
+cd /home/ec2-user/cloud-native-web-app
 git sparse-checkout init --cone
-git sparse-checkout set cloud-native-web-app/app/backend
-git checkout
+git sparse-checkout set app/backend
+git checkout main
 
-# Move backend files up to /home/ec2-user so paths match original script
-mv cloud-native-web-app/app/backend/* /home/ec2-user/
-chown -R ec2-user:ec2-user /home/ec2-user
+chown -R ec2-user:ec2-user /home/ec2-user/cloud-native-web-app
 
 # Start CloudWatch agent
 /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a fetch-config -m ec2 -c file:/opt/aws/amazon-cloudwatch-agent/etc/amazon-cloudwatch-agent.json -s
@@ -78,4 +76,4 @@ echo "Starting FastAPI server from pre-installed AMI..."
 
 # Start the application using the pre-installed environment
 echo "Server starting on port 8000"
-cd /home/ec2-user && sudo -u ec2-user -E /home/ec2-user/.local/bin/uv run main.py >> /tmp/app-startup.log 2>&1 &
+cd /home/ec2-user/cloud-native-web-app/app/backend && sudo -u ec2-user -E /home/ec2-user/.local/bin/uv run main.py >> /tmp/app-startup.log 2>&1 &
