@@ -23,7 +23,7 @@ let todaysLeaderboard = [];
 // API Functions
 async function loadPlayersFromDatabase() {
     try {
-        const response = await fetch(`${API_BASE_URL}/api/players`);
+        const response = await fetch(`${API_BASE_URL}/players`);
         
         if (!response.ok) {
             const errorData = await response.json();
@@ -47,7 +47,7 @@ async function loadPlayersFromDatabase() {
 
 async function getLeaderboard() {
     try {
-        const response = await fetch(`${API_BASE_URL}/api/leaderboard`);
+        const response = await fetch(`${API_BASE_URL}/leaderboard`);
         
         if (!response.ok) {
             const errorData = await response.json();
@@ -70,7 +70,7 @@ async function getPlayerStats(playerName) {
         const formattedName = nameParts.length >= 2 
             ? `${nameParts[nameParts.length - 1]}_${nameParts.slice(0, -1).join('_')}`
             : playerName.replace(/\s+/g, '_');
-        const response = await fetch(`${API_BASE_URL}/api/stats/${formattedName}`);
+        const response = await fetch(`${API_BASE_URL}/stats/${formattedName}`);
         
         if (!response.ok) {
             const errorData = await response.json();
@@ -87,7 +87,7 @@ async function getPlayerStats(playerName) {
 
 async function submitScoreToLeaderboard(username, completionTime) {
     try {
-        const response = await fetch(`${API_BASE_URL}/api/leaderboard`, {
+        const response = await fetch(`${API_BASE_URL}/leaderboard`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
