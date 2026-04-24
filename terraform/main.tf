@@ -111,7 +111,7 @@ module "monitoring" {
   alert_email = var.alert_email_address
 
   # Routing dependencies (from routing module)
-  cloudfront_distribution_id = module.routing.cloudfront_distribution_id
+  alb_arn_suffix = module.routing.alb_arn_suffix
 
   # Compute dependencies (for Auto Scaling alarms)
   autoscaling_group_name = module.compute.autoscaling_group_name
