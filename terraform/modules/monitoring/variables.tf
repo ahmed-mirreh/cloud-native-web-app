@@ -18,9 +18,9 @@ variable "alert_email" {
   sensitive   = true
 }
 
-# CloudFront configuration (passed from routing module)
-variable "cloudfront_distribution_id" {
-  description = "CloudFront distribution ID for monitoring"
+# ALB configuration (passed from routing module)
+variable "alb_arn_suffix" {
+  description = "ALB ARN suffix for monitoring (e.g., app/my-alb/1234567890123456)"
   type        = string
 }
 

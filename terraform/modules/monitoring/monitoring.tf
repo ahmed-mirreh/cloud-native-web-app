@@ -14,25 +14,25 @@ resource "aws_sns_topic_subscription" "email_alerts" {
   endpoint  = var.alert_email
 }
 
-# CloudWatch Alarm - CloudFront 5xx Errors (triggers maintenance mode)
-resource "aws_cloudwatch_metric_alarm" "cloudfront_5xx_errors" {
-  alarm_name          = "${var.project_name}-${var.environment}-cloudfront-5xx-errors"
+# CloudWatch Alarm - ALB 5xx Errors (triggers maintenance mode)
+resource "aws_cloudwatch_metric_alarm" "alb_5xx_errors" {
+  alarm_name          = "${var.project_name}-${var.environment}-alb-5xx-errors"
   comparison_operator = "GreaterThanThreshold"
   evaluation_periods  = "2"
-  metric_name         = "5xxErrorRate"
-  namespace           = "AWS/CloudFront"
+  metric_name         = "HTTPCode_Target_5XX_Count"
+  namespace           = "AWS/ApplicationELB"
   period              = "300"  # 5 minutes
-  statistic           = "Average"
-  threshold           = "3"    # Alert if 5xx error rate > 3%
-  alarm_description   = "Critical: CloudFront 5xx error rate indicates backend issues"
+  statistic           = "Sum"
+  threshold           = "10"   # Alert if more than 10 5xx errors in 5 minutes
+  alarm_description   = "Critical: ALB 5xx errors indicate backend application issues"
   alarm_actions       = [aws_sns_topic.alerts.arn]
 
   dimensions = {
-    DistributionId = var.cloudfront_distribution_id
+    LoadBalancer = var.alb_arn_suffix
   }
 
   tags = {
-    Name = "${var.project_name}-${var.environment}-cf-5xx-alarm"
+    Name = "${var.project_name}-${var.environment}-alb-5xx-alarm"
   }
 }
 
