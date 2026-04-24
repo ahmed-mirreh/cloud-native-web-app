@@ -294,10 +294,9 @@ This project demonstrates **enterprise-grade cloud architecture** including:
 
 To avoid ongoing AWS charges, clean up resources when testing is complete:
 
-#### **1️⃣ Empty S3 Bucket**
+#### **1️⃣ Empty Frontend S3 Bucket**
 ```bash
 cd terraform/
-export BUCKET_NAME=$(terraform output -raw s3_bucket_name)
 
 # Remove all files from S3 bucket
 aws s3 rm s3://${BUCKET_NAME} --recursive --region us-east-1
